@@ -10,9 +10,9 @@ const AddNote = ({ show, onClose, onSave }) => {
   const { mutate: addNote } = useMutation({
     mutationFn: () =>
       createNote({
-        title,
+        title: title,
         topic: topics,
-        body,
+        body: body,
       }),
     onSuccess: () => {
       queryClient.invalidateQueries(["notes"]);
@@ -45,10 +45,10 @@ const AddNote = ({ show, onClose, onSave }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addNote();
-    setTitle("");
-    setTopics([]);
-    setBody("");
+    addNote(title, topics, body);
+    setTitle(title);
+    setTopics(topics);
+    setBody(body);
   };
 
   if (!show) {

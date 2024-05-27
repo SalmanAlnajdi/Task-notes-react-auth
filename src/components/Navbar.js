@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { removeToken } from "../api/storage";
+import User from "../pages/Users";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
+
+  
 
   return (
     <nav className="bg-gray-800">

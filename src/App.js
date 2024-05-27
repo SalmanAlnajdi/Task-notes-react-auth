@@ -18,7 +18,6 @@ function App() {
       setUser(true);
     }
   }, []);
-  console.log(user);
 
   return (
     <UserContext.Provider value={[user, setUser]}>

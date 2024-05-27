@@ -5,17 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import instance from "./api";
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
-instance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
 root.render(
   <React.StrictMode>
     <BrowserRouter>
